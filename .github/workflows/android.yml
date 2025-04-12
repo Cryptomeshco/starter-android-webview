@@ -5,6 +5,14 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch or tag to build'
+        default: 'refs/heads/main'
+        required: false
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -14,6 +22,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.ref || github.ref_name }}
 
       - name: Set up JDK
         uses: actions/setup-java@v3
