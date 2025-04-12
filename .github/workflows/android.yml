@@ -31,8 +31,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle
 
+      - name: Enable Gradle Daemon
+        run: echo "org.gradle.daemon=true" >> ~/.gradle/gradle.properties
+
       - name: Grant execute permission to Gradle
         run: chmod +x ./gradlew
+
+      - name: Run Tests
+        run: ./gradlew test
 
       - name: Build APK
         run: ./gradlew assembleDebug
