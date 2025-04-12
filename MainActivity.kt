@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         webView.webViewClient = WebViewClient()
 
         // Load your URL here
-        webView.loadUrl("https://example.com") // <-- change this to your URL
+        webView.loadUrl("https://coinmarketcap.com") // <-- change this to your URL
 
         setContentView(webView)
     }
