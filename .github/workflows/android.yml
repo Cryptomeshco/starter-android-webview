@@ -3,13 +3,13 @@ name: Build APK
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
     inputs:
       ref:
         description: 'Branch or tag to build'
-        default: 'refs/heads/master'
-        required: false
+        default: 'refs/heads/main'
+        required: true
 
 permissions:
   contents: write
